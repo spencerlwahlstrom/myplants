@@ -7,9 +7,27 @@ Sources:
 project code for using amplify libraries user sign in, userdata, object crud, swipe functionality adapted from https://docs.amplify.aws/lib/q/platform/js/#amplify-javascript, https://aws.amazon.com/getting-started/hands-on/build-android-app-amplify/, https://developer.android.com/docs. 
 
  Sign in
+ 
+ 
+ 
 ![sign in](https://user-images.githubusercontent.com/86215539/188517087-0a4cf5d4-299e-4ac7-a7fe-4fd3f8e68cec.png)
+
+
+
+
+
 log in
+
+
+
+
+
 ![log in](https://user-images.githubusercontent.com/86215539/188517100-9a97315b-8e3b-4f9e-90c7-f752fcc976ad.png)
+
+
+
+
+
 main page
 ![main page](https://user-images.githubusercontent.com/86215539/188517104-7457f0fb-b2be-4429-9cd8-b9e518f0e7fe.png)
 add plant

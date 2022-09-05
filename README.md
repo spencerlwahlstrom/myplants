@@ -4,7 +4,7 @@ Plant organizer application to track user plants, and to get notifications for t
     set notification schedule, shareplant posts and profile with friends, set up application topics for users to add, comment on, and user moderated. 
    
    
-    ![alt text](https://github.com/spencerlwahlstrom/myplants/blob/master/add%20plant%201.PNG)
+    ![alt text](https://github.com/spencerlwahlstrom/myplants/blob/master/add plant 1.PNG)
      
     ![alt text](https://github.com/spencerlwahlstrom/myplants/blob/master/images/log%20in.PNG)
     

@@ -1,7 +1,7 @@
 # myplants
-Plant organizer application to track user plants, and to get notifications for their watering and fertilizing. Built using kotlin core dependecies, aws amplify, grapql api, dynamo db and awsstorage. 
+Plant organizer application to track user plants, and to get notifications for their watering and fertilizing. App uses kotlin core dependecies, aws amplify, grapql api, dynamo db and aws storage. 
 ###More to come
-set notification schedule, shareplant posts and profile with friends, set up application topics for users to add, comment on, and user moderated. 
+set notification schedule, shareplant posts and profile with friends, set up topics for users to add, comment on. 
 
 Sources:
 project code for using amplify libraries user sign in, userdata, image storage,  object crud, swipe functionality adapted from example calls https://docs.amplify.aws/lib/q/platform/js/#amplify-javascript, https://aws.amazon.com/getting-started/hands-on/build-android-app-amplify/, https://developer.android.com/docs. 

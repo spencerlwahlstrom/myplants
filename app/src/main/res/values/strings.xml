@@ -6,7 +6,19 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
     <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="channel_name">myplantschannel</string>
+    <string name="channel_description">channel for this app</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="last_watered">Last Watered: %$s</string>
+    <string name="last_fertilized">Last Watered: %$s</string>
+    <string name="get_notifications">Set Notifications</string>
+    <string name="signout">sign out</string>
+    <string name="login">sign in/ sign up</string>
+    <string name="add_plant">add plant</string>
+    <string name="water_interval">Select the amount of days between waterings for this plant</string>
+    <string name="fertilize_interval">Select the amount of days between fertilizing for this plant</string>
+    <string name="fertilize_date">Enter the date when this plant was last fertilized</string>
+    <string name="water_date">Enter the date when this plant was last watered</string>
+
 </resources>

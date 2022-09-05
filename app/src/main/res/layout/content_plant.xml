@@ -34,6 +34,32 @@
             android:layout_height="wrap_content"
             android:text="Title"
             android:textSize="15sp" />
+        <TextView
+            android:id="@+id/lastWatered"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textSize="15sp" />
 
+        <TextView
+            android:id="@+id/lastFertilized"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/nextWatered"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/nextFertilized"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textSize="15sp" />
     </LinearLayout>
 </LinearLayout>

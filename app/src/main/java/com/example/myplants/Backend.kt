@@ -73,12 +73,11 @@ object Backend {
 
         Log.i(TAG, "retrieving session status")
 
-// is user already authenticated (from a previous execution) ?
+
         Amplify.Auth.fetchAuthSession(
             { result ->
                 Log.i(TAG, result.toString())
                 val cognitoAuthSession = result as AWSCognitoAuthSession
-                // update UI
                 this.updateUserData(cognitoAuthSession.isSignedIn)
                 when (cognitoAuthSession.identityId.type) {
                     AuthSessionResult.Type.SUCCESS ->  Log.i(TAG, "IdentityId: " + cognitoAuthSession.identityId.value)
@@ -167,7 +166,7 @@ object Backend {
 
         if (plant == null) return
 
-        Log.i(TAG, "Deleting note $plant")
+        Log.i(TAG, "Deleting plant $plant")
 
         Amplify.API.mutate(
             ModelMutation.delete(plant.data),

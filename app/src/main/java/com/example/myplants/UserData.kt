@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.amplifyframework.datastore.generated.model.PlantData
 
-// a singleton to hold user data (this is a ViewModel pattern, without inheriting from ViewModel)
 object UserData {
 
     private const val TAG = "UserData"
@@ -35,7 +34,6 @@ object UserData {
             plants.add(n)
             _plants.notifyObserver()
         } else {
-            Log.e(TAG, "addNote : note collection is null !!")
         }
     }
     fun deletePlant(at: Int) : Plant?  {
@@ -45,11 +43,11 @@ object UserData {
     }
 
     fun resetPlants() {
-        this._plants.value?.clear()  //used when signing out
+        this._plants.value?.clear()
         _plants.notifyObserver()
     }
 
-    data class Plant(val id: String, val name: String, val description: String, var imageName: String? = null) {
+    data class Plant(val id: String, val name: String, val description: String, var lastWatered: String, var lastFertilized: String, var waterInterval: Int, var fertilizeInterval: Int, var imageName: String? = null) {
         override fun toString(): String = name
 
         var image : Bitmap? = null
@@ -59,13 +57,16 @@ object UserData {
                 .name(this.name)
                 .description(this.description)
                 .image(this.imageName)
+                .lastWatered(this.lastWatered)
+                .lastFertilized(this.lastFertilized)
+                .waterInterval(this.waterInterval)
+                .fertilizeInterval(this.fertilizeInterval)
                 .id(this.id)
                 .build()
 
-        // static function to create a Note from a NoteData API object
         companion object {
             fun from(plantData : PlantData) : Plant {
-                val result = Plant(plantData.id, plantData.name, plantData.description, plantData.image)
+                val result = Plant(plantData.id, plantData.name, plantData.description, plantData.lastWatered, plantData.lastFertilized, plantData.waterInterval, plantData.fertilizeInterval, plantData.image)
                 if (plantData.image != null) {
                     Backend.retrieveImage(plantData.image!!) {
                         result.image = it

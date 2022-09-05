@@ -5,4 +5,8 @@ type PlantData
     name: String!
     description: String
     image: String
+    lastWatered: String
+    lastFertilized: String
+    waterInterval: Int
+    fertilizeInterval: Int
 }

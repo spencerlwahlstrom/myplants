@@ -3,48 +3,76 @@ package com.example.myplants
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.icu.text.SimpleDateFormat
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import android.widget.DatePicker
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.datepicker.MaterialDatePicker.Builder.datePicker
 import com.google.android.material.shape.CornerFamily
 import kotlinx.android.synthetic.main.activity_add_plant.*
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
+
 
 class AddPlantActivity : AppCompatActivity()  {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_plant)
+        val datePickerWater = findViewById<DatePicker>(R.id.lastWatered)
+        val datePickerFertilize = findViewById<DatePicker>(R.id.lastFertilized)
+        val today = Calendar.getInstance()
+        datePickerWater.init(today.get(Calendar.YEAR), today.get(Calendar.MONTH),
+            today.get(Calendar.DAY_OF_MONTH)){ view, year, month, day ->
+        }
 
         cancel.setOnClickListener {
             this.finish()
         }
-
+        this.setupNumPickers()
         addPlant.setOnClickListener {
+            var day = datePickerWater.getDayOfMonth()
+            var month = datePickerWater.getMonth()
+            var year = datePickerWater.getYear()
+            var calendar = Calendar.getInstance()
+            calendar[year, month] = day
 
-            // create a note object
+            val format =  SimpleDateFormat("yyyy-MM-dd")
+            val waterDate = format.format(calendar.time)
+            day = datePickerFertilize.getDayOfMonth()
+            month = datePickerFertilize.getMonth()
+            year = datePickerFertilize.getYear()
+            calendar = Calendar.getInstance()
+            calendar[year, month] = day
+            val fertilizeDate = format.format(calendar.time)
+
             val plant = UserData.Plant(
                 UUID.randomUUID().toString(),
                 name?.text.toString(),
-                description?.text.toString()
+                description?.text.toString(),
+                waterDate,
+                fertilizeDate.toString(),
+                waterInterval.value,
+                fertilizeInterval.value
             )
+
             if (this.plantImagePath != null) {
                 plant.imageName = UUID.randomUUID().toString()
-                //note.setImage(this.noteImage)
                 plant.image = this.plantImage
 
-                // asynchronously store the image (and assume it will work)
                 Backend.storeImage(this.plantImagePath!!, plant.imageName!!)
             }
 
-            // store it in the backend
+
             Backend.createPlant(plant)
 
             // add it to UserData, this will trigger a UI refresh
@@ -62,7 +90,6 @@ class AddPlantActivity : AppCompatActivity()  {
             startActivityForResult(i, SELECT_PHOTO)
         }
 
-// create rounded corners for the image
         image.shapeAppearanceModel = image.shapeAppearanceModel
             .toBuilder()
             .setAllCorners(CornerFamily.ROUNDED, 150.0f)
@@ -123,4 +150,13 @@ class AddPlantActivity : AppCompatActivity()  {
             }
         }
     }
+
+    private fun setupNumPickers() {
+        waterInterval.minValue = 0
+        waterInterval.maxValue = 100
+        fertilizeInterval.minValue =0
+        fertilizeInterval.maxValue =100
+    }
+
+
 }

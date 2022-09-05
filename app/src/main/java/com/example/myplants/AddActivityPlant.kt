@@ -71,14 +71,8 @@ class AddPlantActivity : AppCompatActivity()  {
 
                 Backend.storeImage(this.plantImagePath!!, plant.imageName!!)
             }
-
-
             Backend.createPlant(plant)
-
-            // add it to UserData, this will trigger a UI refresh
             UserData.addPlant(plant)
-
-            // close activity
             this.finish()
         }
 

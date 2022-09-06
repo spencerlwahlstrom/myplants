@@ -45,7 +45,7 @@ object Backend {
         }
 
         Log.i(TAG, "registering hub event")
-// listen to auth event
+        // listen to auth event
         Amplify.Hub.subscribe(HubChannel.AUTH) { hubEvent: HubEvent<*> ->
 
             when (hubEvent.name) {

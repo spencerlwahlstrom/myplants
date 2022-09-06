@@ -37,9 +37,7 @@ class PlantRecyclerViewAdapter(
             holder.imageView.setImageBitmap(item.image)
         }
     }
-
     override fun getItemCount() = values?.size ?: 0
-
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.image)
         val nameView: TextView = view.findViewById(R.id.name)

@@ -38,6 +38,7 @@ class AddPlantActivity : AppCompatActivity()  {
         cancel.setOnClickListener {
             this.finish()
         }
+
         this.setupNumPickers()
         addPlant.setOnClickListener {
             var day = datePickerWater.getDayOfMonth()
@@ -106,24 +107,15 @@ class AddPlantActivity : AppCompatActivity()  {
         when (requestCode) {
             SELECT_PHOTO -> if (resultCode == RESULT_OK) {
                 val selectedImageUri : Uri? = imageReturnedIntent!!.data
-
-                // read the stream to fill in the preview
                 var imageStream: InputStream? = contentResolver.openInputStream(selectedImageUri!!)
                 val selectedImage = BitmapFactory.decodeStream(imageStream)
                 val ivPreview: ImageView = findViewById<View>(R.id.image) as ImageView
                 ivPreview.setImageBitmap(selectedImage)
-
-                // store the image to not recreate the Bitmap every time
                 this.plantImage = selectedImage
-
-                // read the stream to store to a file
                 imageStream = contentResolver.openInputStream(selectedImageUri)
                 val tempFile = File.createTempFile("image", ".image")
                 copyStreamToFile(imageStream!!, tempFile)
-
-                // store the path to create a note
                 this.plantImagePath = tempFile.absolutePath
-
                 Log.d(TAG, "Selected image : ${tempFile.absolutePath}")
             }
         }

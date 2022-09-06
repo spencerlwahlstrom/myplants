@@ -157,9 +157,4 @@ class MainActivity : AppCompatActivity() {
         }
         return plantList
     }
-
-
-
-
-
 }

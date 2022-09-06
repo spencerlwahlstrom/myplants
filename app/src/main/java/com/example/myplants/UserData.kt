@@ -49,9 +49,7 @@ object UserData {
 
     data class Plant(val id: String, val name: String, val description: String, var lastWatered: String, var lastFertilized: String, var waterInterval: Int, var fertilizeInterval: Int, var imageName: String? = null) {
         override fun toString(): String = name
-
         var image : Bitmap? = null
-
         val data : PlantData
             get() = PlantData.builder()
                 .name(this.name)
@@ -76,6 +74,5 @@ object UserData {
                 return result
             }
         }
-
     }
 }

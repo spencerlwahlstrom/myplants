@@ -11,8 +11,6 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 
-
-// https://stackoverflow.com/questions/33985719/android-swipe-to-delete-recyclerview
 class SwipeCallback(private val activity: AppCompatActivity): ItemTouchHelper.SimpleCallback(
     0,
     ItemTouchHelper.LEFT
@@ -23,7 +21,7 @@ class SwipeCallback(private val activity: AppCompatActivity): ItemTouchHelper.Si
         activity,
         R.drawable.ic_baseline_delete_sweep
     )
-    private val background: ColorDrawable = ColorDrawable(Color.RED)
+    private val background: ColorDrawable = ColorDrawable(Color.WHITE)
 
     override fun onChildDraw(
         c: Canvas,
@@ -74,22 +72,12 @@ class SwipeCallback(private val activity: AppCompatActivity): ItemTouchHelper.Si
     }
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, swipeDir: Int) {
-
         Toast.makeText(activity, "deleted", Toast.LENGTH_SHORT).show()
-
-        //Remove swiped item from list and notify the RecyclerView
         Log.d(TAG, "Going to remove ${viewHolder.adapterPosition}")
-
-        // get the position of the swiped item in the list
         val position = viewHolder.adapterPosition
-
-        // remove to note from the userdata will refresh the UI
         val plant = UserData.deletePlant(position)
-
-        // async remove from backend
         Backend.deletePlant(plant)
         if (plant?.imageName != null) {
-            //asynchronously delete the image (and assume it will work)
             Backend.deleteImage(plant.imageName!!)
         }
     }

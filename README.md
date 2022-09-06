@@ -3,8 +3,8 @@ Plant organizer application to track user plants, and to get notifications for t
 ### More to come
 set notification schedule, shareplant posts and profile with friends, set up topics for users to add, comment on. 
 
-Sources:
-project code for using amplify libraries user sign in, userdata, image storage,  object crud, swipe functionality adapted from example calls https://docs.amplify.aws/lib/q/platform/js/#amplify-javascript, https://aws.amazon.com/getting-started/hands-on/build-android-app-amplify/, https://developer.android.com/docs. 
+Sources: 
+https://docs.amplify.aws/lib/q/platform/js/#amplify-javascript, https://developer.android.com/docs, https://aws.amazon.com/getting-started/hands-on/build-android-app-amplify/,  https://stackoverflow.com/questions/33985719/android-swipe-to-delete-recyclerview
 
  Sign in
  

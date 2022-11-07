@@ -1,7 +1,7 @@
 # myplants
 Plant organizer application to track user plants, and to get notifications for their watering and fertilizing. Dynamicalyl displays next watering dates and fertilizing dates for each plant added. Notifies users each day with plants to water and to fertilize.  App uses kotlin core dependecies, aws amplify, grapql api, dynamo db and aws storage. 
 ### More to come
-set notification schedule, shareplant posts and profile with friends, set up topics for users to add, comment on. 
+set notification schedule, share plant posts and profile with friends, set up topics for users to add and comment on. 
 
 Sources: 
 https://docs.amplify.aws/lib/q/platform/js/#amplify-javascript, https://developer.android.com/docs, https://aws.amazon.com/getting-started/hands-on/build-android-app-amplify/,  https://stackoverflow.com/questions/33985719/android-swipe-to-delete-recyclerview

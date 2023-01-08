@@ -1,5 +1,5 @@
 # myplants
-Plant organizer application to track user plants, and to get notifications for their watering and fertilizing. Dynamically displays next watering dates and fertilizing dates for each plant added. Notifies users each day with plants to water and to fertilize.  App uses kotlin core dependecies, aws amplify, grapql api, dynamo db and aws storage. 
+Plant organizer application to track user plants, and to get notifications for their watering and fertilizing. Dynamically displays next watering dates and fertilizing dates for each plant added. Notifies users each day with plants to water and to fertilize.  App uses kotlin core dependecies, aws amplify, graphql api, dynamo db and aws storage. 
 ### More to come
 set notification schedule, share plant posts and profile with friends, set up topics for users to add and comment on. 
 
